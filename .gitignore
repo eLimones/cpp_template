@@ -1,0 +1,6 @@
+/tests/gmock_test
+/bin
+/objects
+
+*.swp
+*.[oa]
