@@ -64,7 +64,7 @@ vpath %.a $(BIN_DIR) $(LINKER_DIRS)
 vpath % $(BIN_DIR)
 vpath %.elf $(BIN_DIR)
 
-.PHONY: disp clean test_clean dist_clean test
+.PHONY: disp clean test_clean dist_clean test install_googletest
 
 all: $(OUTPUT_EXEC)
 $(OUTPUT_EXEC): $(OBJECTS) $(LINKER_FILES) | $(BIN_DIR)
@@ -87,3 +87,7 @@ test:
 	$(MAKE) --directory=./tests test
 run: $(OUTPUT_EXEC)
 	$(BIN_DIR)/$(OUTPUT_EXEC)
+install_googletest:
+	mkdir -p  ~/bin
+	git clone https://github.com/google/googletest ~/bin/googletest
+	echo "export GOOGLETEST_HOME=~/bin/googletest" >> ~/.bashrc
