@@ -2,8 +2,8 @@ SOURCE_DIRS:= ./source ../source ../retarget/source
 INCLUDE_DIRS:= ./include ../include ../retarget/include
 LINKER_DIRS:= ./gmock
 
-GTEST_DIR = $(GMOCK_HOME)/gtest
-GMOCK_DIR = $(GMOCK_HOME)
+GTEST_DIR = $(GOOGLETEST_HOME)/googletest
+GMOCK_DIR = $(GOOGLETEST_HOME)/googlemock
 GMOCK_LIB:=./gmock/gmock_main.a
 
 TESTS:= gmock_test
