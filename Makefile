@@ -1,24 +1,24 @@
-SOURCE_DIRS:= ./source 
+SOURCE_DIRS:= ./source
 INCLUDE_DIRS:= ./include
 LINKER_DIRS:=
 
-OUTPUT_EXEC:= myProg 
+OUTPUT_EXEC:= myProg
 
-C_SOURCE_FILES:= 
+C_SOURCE_FILES:=
 CXX_SOURCE_FILES:= main.cc
 ASM_SOURCE_FILES:=
 LINKER_FILES:=
 
-LD_SCRIPTS:= 
+LD_SCRIPTS:=
 
 C_OBJECTS:= $(C_SOURCE_FILES:.c=.o)
 CXX_OBJECTS:= $(CXX_SOURCE_FILES:.cc=.o)
 ASM_OBJECTS:= $(ASM_SOURCE_FILES:.S=.o)
 
-COMMON_FLAGS:= -Wall -g 
+COMMON_FLAGS:= -Wall -g
 USER_CPP_FLAGS:=
-USER_DEFINES:= 
-USER_ASM_FLAGS:= 
+USER_DEFINES:=
+USER_ASM_FLAGS:=
 USER_C_FLAGS:= -std=c99
 USER_CXX_FLAGS:= -std=c++11
 USER_LINKER_FLAGS:= -std=c++11
@@ -32,7 +32,7 @@ CPP_FLAGS:= $(CPP_DEFINE_FLAGS) $(INCLUDE_FLAGS) $(USER_CPP_FLAGS)
 #The linker script
 LD_SCRIPTS:=
 #the directories for linker files
-LIB_DIRS:= 
+LIB_DIRS:=
 #the libraries to link
 LIB_NAMES:=
 #linker flags
@@ -80,10 +80,10 @@ $(CXX_OBJECTS): %.o : %.cc | $(OBJECTS_DIR)
 clean:
 	rm -rf $(DIRS_TO_CREATE) $(OUTPUT_EXEC)
 dist_clean: clean
-	$(MAKE) --directory=./tests dist_clean 
+	$(MAKE) --directory=./tests dist_clean
 test_clean:
-	$(MAKE) --directory=./tests clean 
+	$(MAKE) --directory=./tests clean
 test:
-	$(MAKE) --directory=./tests test 
+	$(MAKE) --directory=./tests test
 run: $(OUTPUT_EXEC)
 	$(BIN_DIR)/$(OUTPUT_EXEC)
