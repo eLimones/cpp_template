@@ -1,3 +1,4 @@
+GOOGLETEST_INSTALL_DIR:= ~/bin
 SOURCE_DIRS:= ./source
 INCLUDE_DIRS:= ./include
 LINKER_DIRS:=
@@ -88,6 +89,6 @@ test:
 run: $(OUTPUT_EXEC)
 	$(BIN_DIR)/$(OUTPUT_EXEC)
 install_googletest:
-	mkdir -p  ~/bin
-	git clone https://github.com/google/googletest ~/bin/googletest
-	echo "export GOOGLETEST_HOME=~/bin/googletest" >> ~/.bashrc
+	mkdir -p $(GOOGLETEST_INSTALL_DIR)
+	git clone https://github.com/google/googletest $(GOOGLETEST_INSTALL_DIR)/googletest
+	echo "export GOOGLETEST_HOME=$(GOOGLETEST_INSTALL_DIR)/googletest" >> ~/.bashrc
